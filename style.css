@@ -11,7 +11,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 header {
     background-color: #F0FDF4;
@@ -32,19 +34,22 @@ h1 {
     align-items: center;
 }
 
-.mode-btn {
-    background-color: #34D399;
-    color: white;
+
+button, .mode-btn {
     padding: 10px 20px;
+    background-color: #2a9d8f;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.mode-btn:hover {
-    background-color: #2D9D76;
+button:hover, .mode-btn:hover {
+    background-color: #1e7e6b;
 }
+
 
 .container {
     display: flex;
@@ -60,25 +65,15 @@ h1 {
     gap: 10px;
 }
 
+
 .enterWord {
     padding: 10px;
     font-size: 1rem;
-    border: 2px solid #34D399;
+    border: 2px solid #2a9d8f;
     border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #34D399;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #2D9D76;
-}
 
 .result {
     margin-top: 20px;
@@ -88,42 +83,85 @@ button:hover {
     max-width: 500px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
+.result a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #2a9d8f;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.result a:hover {
+    background-color: #1e7e6b;
+}
+
+
 footer {
-    background-color: white;
-    color: #1F2937;
+    background-color: #2a9d8f;
+    color: white;
     text-align: center;
     padding: 15px;
     margin-top: 30px;
     border-top: 2px solid #34D399;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 footer i {
     font-style: italic;
 }
 
+
 body.dark {
-    background-color: #111827;
-    color: #F9FAFB;
+    background-color: #0f172a;
+    color: #F1F5F9;
 }
 
 body.dark header {
-    background-color: #1F2937;
-    
+    background-color: #1e293b;
 }
-
-
 
 body.dark .enterWord {
-    border: 2px solid #10B981;
+    background-color: #1e293b;
+    color: #F1F5F9;
+    border: 2px solid #2a9d8f;
 }
 
-body.dark button {
-    background-color: #10B981;
+body.dark button, 
+body.dark .mode-btn {
+    background-color: #2a9d8f;
+    color: #F1F5F9;
+}
+
+body.dark button:hover,
+body.dark .mode-btn:hover {
+    background-color: #1e7e6b;
+}
+
+body.dark .result {
+    background-color: #1e293b;
+    color: #F1F5F9;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+    border: 1px solid #334155;
+}
+
+body.dark .result a {
+    background-color: #2a9d8f;
+    color: white;
+}
+
+body.dark .result a:hover {
+    background-color: #1e7e6b;
 }
 
 body.dark footer {
-    background-color: #1F2937;
-    color: #F9FAFB;
+    background-color: #1e293b;
+    color: #F1F5F9;
 }

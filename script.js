@@ -20,9 +20,15 @@ const getData = async () => {
     if (!wordInfo) {
         alert('please Enter a Word');
     }
+
+  
+resultDiv.innerHTML="Featching Data ...";
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordInfo}`);
     const data = await response.json();
-    console.log(data)
+       if (!data.length) {
+                alert(`Sorry,  '${wordInfo}' word not found` );
+                return;
+            }
 
     let definitions = data[0].meanings[0].definitions[0];
 
@@ -31,7 +37,7 @@ const getData = async () => {
     <hr>
     <p><strong>Phonetic: </strong>${data[0].phonetic}<p>
     <hr>
-    <p>${data[0].meanings[0].partOfSpeech}</p>
+    <p><i>${data[0].meanings[0].partOfSpeech}</i></p>
     <hr>
     <p><strong>Meaning:</strong>${definitions.definition === undefined ? "NOT found" : definitions.definition}</p>
     
@@ -62,6 +68,10 @@ const getData = async () => {
 
         console.log(resultDiv);
     }
+
+    resultDiv.innerHTML+= `<hr>
+    
+    <a href="${data[0].sourceUrls}" target="_blank">Read more</a>`;
 }
 
 
