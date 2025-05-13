@@ -80,7 +80,7 @@ button:hover {
     background-color: #2D9D76;
 }
 
-/* .result {
+.result {
     margin-top: 20px;
     padding: 20px;
     background-color: white;
@@ -88,7 +88,7 @@ button:hover {
     max-width: 500px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-} */
+}
 
 footer {
     background-color: white;
