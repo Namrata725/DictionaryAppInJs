@@ -102,3 +102,28 @@ footer {
 footer i {
     font-style: italic;
 }
+
+body.dark {
+    background-color: #111827;
+    color: #F9FAFB;
+}
+
+body.dark header {
+    background-color: #1F2937;
+    
+}
+
+
+
+body.dark .enterWord {
+    border: 2px solid #10B981;
+}
+
+body.dark button {
+    background-color: #10B981;
+}
+
+body.dark footer {
+    background-color: #1F2937;
+    color: #F9FAFB;
+}
