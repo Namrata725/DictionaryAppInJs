@@ -21,14 +21,14 @@ const getData = async () => {
         alert('please Enter a Word');
     }
 
-  
-resultDiv.innerHTML="Featching Data ...";
+
+    resultDiv.innerHTML = "Featching Data ...";
     const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${wordInfo}`);
     const data = await response.json();
-       if (!data.length) {
-                alert(`Sorry,  '${wordInfo}' word not found` );
-                return;
-            }
+    if (!data.length) {
+        alert(`Sorry,  '${wordInfo}' word not found`);
+        return;
+    }
 
     let definitions = data[0].meanings[0].definitions[0];
 
@@ -49,7 +49,7 @@ resultDiv.innerHTML="Featching Data ...";
     <hr>
     `;
 
-    if (definitions.antonyms.length === 0) { resultDiv.innerHTML += `"NOT found" `}
+    if (definitions.antonyms.length === 0) { resultDiv.innerHTML += `"NOT found" ` }
     else {
         for (let i = 0; i < definitions.antonyms.length; i++) {
             resultDiv.innerHTML += `<li>${definitions.antonyms[i]}</li>`
@@ -58,9 +58,9 @@ resultDiv.innerHTML="Featching Data ...";
         console.log(resultDiv);
     }
 
-    resultDiv.innerHTML +=`<p><strong>Synonyms</strong> <hr>`;
+    resultDiv.innerHTML += `<p><strong>Synonyms</strong> <hr>`;
 
-       if (definitions.synonyms.length === 0) { resultDiv.innerHTML += `"NOT found" `}
+    if (definitions.synonyms.length === 0) { resultDiv.innerHTML += `"NOT found" ` }
     else {
         for (let i = 0; i < definitions.synonyms.length; i++) {
             resultDiv.innerHTML += `<li>${definitions.synonyms[i]}</li>`
@@ -69,11 +69,41 @@ resultDiv.innerHTML="Featching Data ...";
         console.log(resultDiv);
     }
 
-    resultDiv.innerHTML+= `<hr>
+    resultDiv.innerHTML += `<hr>
     
     <a href="${data[0].sourceUrls}" target="_blank">Read more</a>`;
 }
-
-
-
 Search.addEventListener('click', getData);
+
+const footer = document.querySelector('footer');
+console.log(footer);
+
+const quoteText = document.querySelector('#quoteText');
+const quoteAuthor=document.querySelector('#quoteAuthor');
+
+const getquote = async () => {
+    const URL = 'https://api.api-ninjas.com/v1/quotes';
+    
+
+    let response = await fetch(URL,
+        {
+            method: "GET",
+            headers: {
+                "X-Api-Key": '67SLMEIOcm9/xJFau9CGzw==byYypTnySObAySYp'
+            }
+        });
+        
+    console.log(response);
+
+    let data= await response.json();
+    console.log(data);
+    let quote=data[0].quote;
+    console.log(quote);
+    let author=data[0].author;
+    console.log(author);
+
+    quoteText.innerText=quote;
+    quoteAuthor.innerHTML=`<i>- ${author}</i>`;
+}
+
+getquote()
